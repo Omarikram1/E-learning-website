@@ -1,0 +1,64 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+</head>
+<body>
+
+    <!-- Display Users -->
+    <h1>Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>ID: {{ user.id }}</li>
+            <li>Username: {{ user.username }}</li>
+            <li>Name: {{ user.name }}</li>
+            <li>Role: {{ user.role }}</li>
+            <li>Email: {{ user.email }}</li>
+        {% empty %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display Courses -->
+    <h1>Courses</h1>
+    <ul>
+        {% for course in courses %}
+            <li>ID: {{ course.id }}</li>
+            <li>Name: {{ course.name }}</li>
+        {% empty %}
+            <li>No courses found.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display Playlists -->
+    <h1>Playlists</h1>
+    <ul>
+        {% for playlist in playlists %}
+            <li>ID: {{ playlist.id }}</li>
+            <li>Name: {{ playlist.name }}</li>
+            <li>User: {{ playlist.user.username }}</li>
+            <li>Course: {{ playlist.course.name }}</li>
+        {% empty %}
+            <li>No playlists found.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display Videos -->
+    <h1>Videos</h1>
+    <ul>
+        {% for video in videos %}
+            <li>ID: {{ video.id }}</li>
+            <li>Title: {{ video.title }}</li>
+            <li>Playlist: {{ video.playlist.name }}</li>
+            <li>File: {{ video.video_file.url }}</li>
+        {% empty %}
+            <li>No videos found.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
